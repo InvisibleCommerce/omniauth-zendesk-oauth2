@@ -21,6 +21,10 @@ module OmniAuth
         session.delete "subdomain"
         super
       end
+      
+      def callback_url
+        options[:redirect_uri] || (full_host + script_name + callback_path)
+      end
 
       def client
         ::OAuth2::Client.new(options.client_id, options.client_secret, oauth_client_options)
