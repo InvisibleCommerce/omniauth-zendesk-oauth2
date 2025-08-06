@@ -11,9 +11,9 @@ module OmniAuth
       option :scope, "read"
       option :subdomain, "test"
 
-      # option :token_params, {
-      #   expires_in: 3600, # 1 hour
-      # }
+      option :token_params, {
+        expires_in: 86_400, # 24 hours
+      }
 
       def authorize_params
         options.scope = request.params["scope"] if request.params["scope"]
